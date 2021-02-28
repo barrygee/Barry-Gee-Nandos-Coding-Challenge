@@ -125,10 +125,6 @@ describe('Telemetery Class', () => {
             expect(roverTelemetry)
                 .to.be.an.instanceof(Array)
                 .and.to.eql(rovers);
-
-            expect(roverTelemetry)
-                .to.be.an.instanceof(Array)
-                .and.to.eql(rovers);
         });
 
         it('should convert upperRightCoordinates into an array of expected values', () => {
