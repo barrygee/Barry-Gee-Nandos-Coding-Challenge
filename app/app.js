@@ -17,7 +17,7 @@ const go = async() => {
     
         // deconstruct values from processed telemetry data
         const { upperRightCoordinates, roverTelemetry } = telemetry.processTelemetry(data);
-
+  
         // create new Plateau object
         const plateau = new Plateau(upperRightCoordinates);
         
