@@ -157,7 +157,11 @@ describe('Telemetery Class', () => {
                                 { position: '33E', instructions: 'MMRMMRMRRM' }];
         })
 
-        it('should return expected output', () => {
+        it('should throw the expected error message if no commands are provided', () => {
+            expect(telemetry.groupRoverTelemetry).to.throw('Commands are required')
+        });
+
+        it('should return an array of grouped commands objects when an array of commands in the expected format are provided', () => {
             expect(telemetry.groupRoverTelemetry(commands)).to.eql(groupedCommands)
         });
     });
