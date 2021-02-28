@@ -37,13 +37,22 @@ class Telemetry {
         */
         let [[...upperRightCoordinates], ...commands] = data;
 
-        const roverTelemetry = this.groupRoverTelemetry(commands);
+        let roverTelemetry;
+
+        try {
+            roverTelemetry = this.groupRoverTelemetry(commands);
+        } catch(error) {
+            throw new Error(error);
+        }
 
         return { upperRightCoordinates, roverTelemetry };
     }
 
     // group the position and instructions data for each rover
     groupRoverTelemetry(commands) {
+
+        // if commands data has not been provided, throw an Error
+        if(!commands) { throw new Error('Commands are required'); }
 
         let groupedCommands = [];
     
