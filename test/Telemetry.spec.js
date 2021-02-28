@@ -119,7 +119,7 @@ describe('Telemetery Class', () => {
                 { position: '43S', instructions: 'MMMLMLMRMM' }
             ];
               
-            // deconstrcut roverTelemetry from the response
+            // deconstruct roverTelemetry from the response
             const { roverTelemetry } = telemetry.processTelemetry(additionalRoverData);
 
             expect(roverTelemetry)
