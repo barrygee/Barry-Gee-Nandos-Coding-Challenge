@@ -2,8 +2,6 @@ const Plateau = require('../app/Plateau');
 
 const chai = require('chai');
 const expect = chai.expect;
-const chaiAsPromised = require('chai-as-promised');
-chai.use(chaiAsPromised);
 
 describe('Plateau Class', () => {
 
