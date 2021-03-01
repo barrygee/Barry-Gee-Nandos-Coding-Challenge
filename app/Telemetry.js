@@ -37,11 +37,7 @@ class Telemetry {
         // remove white space form the remaining data (rover positions and instructions)
         data = data.map(t => t.replace(/\s/g,''));
 
-        /*
-            - deconstruct and spread the upperRightCoordinates into an array - '5 5' becomes ['5','5']
-            - deconstruct and spread the commands data into an array
-        */
-    
+        // deconstruct and spread the commands data into an array
         let [...commands] = data;
 
         let roverTelemetry;
