@@ -20,14 +20,20 @@ const go = async() => {
   
         // create new Plateau object
         const plateau = new Plateau(upperRightCoordinates);
-        
-        // create new rover objects
-        roverTelemetry.forEach(commands => {
+
+        /*
+            Loop through each command and wait until the await rover.drive() has resolved
+            before continuing to the next command in the loop.
+            This prevents the next Rover from starting until the current one has completed
+        */
+        for (const commands of roverTelemetry) {
 
             // create a new Rover object
             const rover = new Rover(commands);
-            console.log(rover.drive(plateau));
-        });   
+
+            await rover.drive(plateau)
+                       .then(finalPosition => console.log('Rover final position: ', finalPosition));
+          }
 
     } catch(Error) {
         console.log(Error);
