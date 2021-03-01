@@ -136,10 +136,9 @@ describe('Rover Class', () => {
             expect(rover.yPosition).to.eq(1)
         });
 
-        it('should not update the Rover yPosition and return the message \'Plateau edge reached\' when a move would take the rover over the top edge of the Plateau boundry', () => {
+        it('should not update the Rover yPosition maneuver would take the rover over the top edge of the Plateau boundry', () => {
             rover.yPosition = 5;
-            
-            expect(rover.move('N', plateau)).to.eql('Plateau edge reached')
+        
             expect(rover.yPosition).to.eql(5);
         });
 
@@ -150,10 +149,9 @@ describe('Rover Class', () => {
             expect(rover.xPosition).to.eq(1)
         });
 
-        it('should not update the Rover xPosition and return the message \'Plateau edge reached\' when a move would take the rover over the right hand edge of the Plateau boundry', () => {
+        it('should not update the Rover xPosition when a maneuver would take the rover over the right hand edge of the Plateau boundry', () => {
             rover.xPosition = 5;
-            
-            expect(rover.move('E', plateau)).to.eql('Plateau edge reached')
+        
             expect(rover.xPosition).to.eql(5);
         });
 
@@ -164,10 +162,9 @@ describe('Rover Class', () => {
             expect(rover.yPosition).to.eq(4)
         });
 
-        it('should not update the Rover yPosition and return the message \'Plateau edge reached\' when a move would take the rover over the bottom edge of the Plateau boundry', () => {
+        it('should not update the Rover yPosition when a maneuver would take the rover over the bottom edge of the Plateau boundry', () => {
             rover.yPosition = 0;
             
-            expect(rover.move('S', plateau)).to.eql('Plateau edge reached')
             expect(rover.yPosition).to.eql(0);
         });
 
@@ -178,10 +175,9 @@ describe('Rover Class', () => {
             expect(rover.xPosition).to.eq(4)
         });
 
-        it('should not update the Rover xPosition and return the message \'Plateau edge reached\' when a move would take the rover over the left hand edge of the Plateau boundry', () => {
+        it('should not update the Rover xPosition when a maneuver would take the rover over the left hand edge of the Plateau boundry', () => {
             rover.xPosition = 0;
             
-            expect(rover.move('W', plateau)).to.eql('Plateau edge reached')
             expect(rover.xPosition).to.eql(0);
         });
     });
