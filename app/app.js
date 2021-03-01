@@ -32,7 +32,10 @@ const go = async() => {
             const rover = new Rover(commands);
 
             await rover.drive(plateau)
-                       .then(finalPosition => console.log('Rover final position: ', finalPosition));
+                       .then(finalPosition => console.log('Rover final position: ', finalPosition))
+                       .catch(error => {
+                           throw error
+                       });
           }
 
     } catch(Error) {
