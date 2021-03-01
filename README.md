@@ -25,7 +25,7 @@
 **Telementary.js**
 
 - Makes a HTTP request to pull the telemetry data file from GitHub 
-- Parses the raw data String.
+- Parses the raw data string.
 - Procresses the data for use when creating new Plateau and Rover objects.
 
 \
@@ -47,4 +47,4 @@
 
 - The edges of the Plateau are automatically detected and the message 'Plateau edge reached' is logged out in the terminal if a manouver would take the Rover outside of that boundry.
 
-- The 'upper-right' coordinates of the plateau are dynamic. If larger or smaller values are provided witin the raw data string, then the boundry detection will automatically use those new values and warn if a manouver would take the Rover outside of that boundry.
+- The 'upper-right' coordinates of the plateau are dynamic. If larger or smaller values are provided within the raw data string, then the boundry detection will automatically use those new values and warn if a manouver would take the Rover outside of that boundry.
