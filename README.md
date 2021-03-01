@@ -8,7 +8,7 @@
 **Run the code:** `npm start`
 
 - The telemetry data that matches that provided in the code challenge document will be pulled from a text file hosted on GitHub.
-- The Final positions of each rover will be logged in the terminal window
+- The final positions of each rover will be logged in the terminal window
 
 **Run the unit tests:** `npm run test`
 \
