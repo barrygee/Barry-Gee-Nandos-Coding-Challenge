@@ -43,8 +43,8 @@
 \
 **Additional Information**
 
-- Adding additional position and instruction lines to the raw data string will automatically generate additional Rover objects when the code is run.
+- Adding additional position and instructions lines to the raw data string will automatically generate additional Rover objects when the code is run. Each Rover is instantiated and given the instruction to drive sequentially. This only occurs once the previous Rover has completed its set of instructions and has reached its final position.
 
-- The edges of the Plateau are automatically detected and the message 'Plateau edge reached' is logged out in the terminal if a manouver would take the Rover outside of that boundry.
+- The edges of the Plateau are automatically detected and the message 'Plateau edge reached' is logged out in the terminal if a manouver would take the Rover outside of that boundry. In this case, the rover position is not updated, preventing the rover from moving beyond the boundry.
 
 - The 'upper-right' coordinates of the plateau are dynamic. If larger or smaller values are provided within the raw data string, then the boundry detection will automatically use those new values and warn if a manouver would take the Rover outside of that boundry.
