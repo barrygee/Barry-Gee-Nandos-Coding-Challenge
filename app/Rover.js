@@ -81,7 +81,7 @@ class Rover {
 
         switch(direction) {
             case 'N':
-                if (this.yPosition < upperRightY ) {
+                if (this.yPosition < upperRightY) {
                     this.yPosition++;
                 } else {
                     return 'Plateau edge reached';
@@ -89,7 +89,7 @@ class Rover {
                 break;
             
             case 'E':
-                if (this.xPosition < upperRightX ) {
+                if (this.xPosition < upperRightX) {
                     this.xPosition++;
                 } else {
                     return 'Plateau edge reached';
