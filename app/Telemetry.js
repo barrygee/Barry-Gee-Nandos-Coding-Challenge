@@ -28,14 +28,21 @@ class Telemetry {
         */
         data = data.split('\n');
 
-        // remove white space from inside each value
+        // take the first element in the data Array, then remove it from the Array
+        const coordinates = data.shift();
+
+        // split the coordinates into an Array, removing white space
+        const upperRightCoordinates = coordinates.split(/\s/);
+
+        // remove white space form the remaining data (rover positions and instructions)
         data = data.map(t => t.replace(/\s/g,''));
 
         /*
             - deconstruct and spread the upperRightCoordinates into an array - '5 5' becomes ['5','5']
             - deconstruct and spread the commands data into an array
         */
-        let [[...upperRightCoordinates], ...commands] = data;
+    
+        let [...commands] = data;
 
         let roverTelemetry;
 
