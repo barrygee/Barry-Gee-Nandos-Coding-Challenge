@@ -23,7 +23,7 @@ class Plateau {
     }
 
     set upperRightX(upperRightX) {
-        this._upperRightX = upperRightX;
+        this._upperRightX = parseInt(upperRightX);
     }
 
     get upperRightY() {
@@ -31,7 +31,7 @@ class Plateau {
     }
 
     set upperRightY(upperRightY) {
-        this._upperRightY = upperRightY;
+        this._upperRightY = parseInt(upperRightY);
     }
 
     get cardinalCompassPoints() {
