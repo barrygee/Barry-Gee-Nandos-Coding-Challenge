@@ -78,10 +78,16 @@ describe('Rover Class', () => {
             expect(rover.instructions).to.eql(['R', 'R', 'R', 'M', 'M', 'M', 'L', 'L', 'L', 'M', 'M', 'M']);
         });
 
-    
+        it('should get the rovers final positions', async () => {
+            const plateau = new Plateau(['5', '5']);
 
-        it('should get the rovers final position', () => {
-            //...
+            const rover1 = new Rover({ position: '12N', instructions: 'LMLMLMLMM' });
+            await rover1.drive(plateau);
+            expect(rover1.finalPosition).to.eql('1 3 N');
+
+            const rover2 = new Rover({ position: '33E', instructions: 'MMRMMRMRRM' });
+            await rover2.drive(plateau);
+            expect(rover2.finalPosition).to.eql('5 1 E');
         });
     });
 
