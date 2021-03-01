@@ -53,7 +53,7 @@ class Rover {
 
         if(!plateau) { throw new Error('A Plateau object is required'); }
 
-        // console.log(`Rover starting position: ${this.xPosition} ${this.yPosition} ${this.direction}`);
+        console.log(`Rover starting position: ${this.xPosition} ${this.yPosition} ${this.direction}`);
 
         return new Promise((resolve, reject) => {
  
@@ -61,18 +61,20 @@ class Rover {
                 switch(instruction) {
                     case 'M':
                         this.move(this.direction, plateau);
+
                         break;
 
                     case 'L':
                     case 'R':
                         this.changeDirection(instruction, this.direction, plateau)
+
                         break;
 
                     default:
                         reject(new Error('Invalid instruction provided'));
                 }
             })
-            resolve(this.finalPosition)
+            resolve(this.finalPosition)                                   
         });
     }
 
@@ -84,15 +86,16 @@ class Rover {
                 if (this.yPosition < upperRightY) {
                     this.yPosition++;
                 } else {
-                    return 'Plateau edge reached';
+                    console.log( 'Plateau edge reached');
                 }
+                
                 break;
             
             case 'E':
                 if (this.xPosition < upperRightX) {
                     this.xPosition++;
                 } else {
-                    return 'Plateau edge reached';
+                    console.log( 'Plateau edge reached');
                 }
 
                 break;
@@ -101,7 +104,7 @@ class Rover {
                 if (this.yPosition > 0) {
                     this.yPosition--;
                 } else {
-                    return 'Plateau edge reached';
+                    console.log( 'Plateau edge reached');
                 }
               
                 break;
@@ -110,7 +113,7 @@ class Rover {
                 if (this.xPosition > 0) {
                     this.xPosition--;
                 } else {
-                    return 'Plateau edge reached';
+                    console.log( 'Plateau edge reached');
                 }
               
                 break;
