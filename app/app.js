@@ -9,12 +9,12 @@ const go = async() => {
         const telemetry = new Telemetry();
 
         // get telemetry data
-        const data = await telemetry.getTelemetry('https://raw.githubusercontent.com/barrygee/files/master/nandos-telemetry.txt')
+        const data = await telemetry.getTelemetry('https://raw.githubusercontent.com/barrygee/files/master/nandos-telemetry-data.txt')
                                     .then(data => data)
                                     .catch(error => {
                                         throw error;
                                     });
-    
+                                    
         // deconstruct values from processed telemetry data
         const { upperRightCoordinates, roverTelemetry } = telemetry.processTelemetry(data);
   
