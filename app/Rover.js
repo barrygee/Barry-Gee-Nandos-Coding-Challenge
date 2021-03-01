@@ -5,11 +5,11 @@ class Rover {
             throw new Error('Invalid commands data provided'); 
         } else {
             const [ xPosition, yPosition, direction ] = Array.from(commands.position);
-            this.xPosition = parseInt(xPosition);
-            this.yPosition = parseInt(yPosition);
+            this.xPosition = xPosition;
+            this.yPosition = yPosition;
             this.direction = direction;
     
-            this.instructions = Array.from(commands.instructions);
+            this.instructions = commands.instructions;
         } 
     }
 
@@ -18,7 +18,7 @@ class Rover {
     }
 
     set xPosition(xPosition) {
-        this._xPosition = xPosition;
+        this._xPosition = parseInt(xPosition);
     }
 
     get yPosition() {
@@ -26,7 +26,7 @@ class Rover {
     }
 
     set yPosition(yPosition) {
-        this._yPosition = yPosition;
+        this._yPosition = parseInt(yPosition);
     }
 
     get direction() {
@@ -42,7 +42,7 @@ class Rover {
     }
 
     set instructions(instructions) {
-        this._instructions = instructions;
+        this._instructions = Array.from(instructions);
     }
 
     get finalPosition() {
@@ -55,7 +55,7 @@ class Rover {
 
         // console.log(`Rover starting position: ${this.xPosition} ${this.yPosition} ${this.direction}`);
 
-        return new Promise(resolve => {
+        return new Promise((resolve, reject) => {
  
             this.instructions.forEach(instruction => {
                 switch(instruction) {
@@ -69,7 +69,7 @@ class Rover {
                         break;
 
                     default:
-                        throw new Error('Invalid instruction provided');
+                        reject(new Error('Invalid instruction provided'));
                 }
             })
             resolve(this.finalPosition)
