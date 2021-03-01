@@ -1,11 +1,12 @@
 class Rover {
     constructor(commands) {
+
         if(!commands) { 
             throw new Error('Invalid commands data provided'); 
         } else {
             const [ xPosition, yPosition, direction ] = Array.from(commands.position);
-            this.xPosition = xPosition;
-            this.yPosition = yPosition;
+            this.xPosition = parseInt(xPosition);
+            this.yPosition = parseInt(yPosition);
             this.direction = direction;
     
             this.instructions = Array.from(commands.instructions);
@@ -51,7 +52,7 @@ class Rover {
     drive(plateau) {
 
         if(!plateau) { throw new Error('A Plateau object is required'); }
-        
+
         // console.log(`Rover starting position: ${this.xPosition} ${this.yPosition} ${this.direction}`);
 
         return new Promise(resolve => {
