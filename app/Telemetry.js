@@ -28,7 +28,7 @@ class Telemetry {
         */
         data = data.split('\n');
 
-        // take the first element in the data Array, then remove it from the Array
+        // take the first element in the data Array, assign it to the coordinates variable and then remove it from the Array
         const coordinates = data.shift();
 
         // split the coordinates into an Array, removing white space
