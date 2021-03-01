@@ -50,25 +50,31 @@ class Rover {
 
     drive(plateau) {
 
-        if(!plateau) { throw new Error('A Plateau object is required'); } 
+        console.log(`Rover starting position: ${this.xPosition} ${this.yPosition} ${this.direction}`);
 
-        this.instructions.forEach(instruction => {
-            switch(instruction) {
-                case 'M':
-                    this.move(plateau);
-                    break;
+        return new Promise(resolve => {
 
-                case 'L':
-                case 'R':
-                    this.changeDirection(instruction, this.direction, plateau)
-                    break;
+            if(!plateau) { throw new Error('A Plateau object is required'); } 
 
-                default:
-                    throw new Error('Invalid instruction provided');
-            }
-        })
-        
-        return this.finalPosition;
+            this.instructions.forEach(instruction => {
+                switch(instruction) {
+                    case 'M':
+                        this.move(plateau);
+                        break;
+
+                    case 'L':
+                    case 'R':
+                        this.changeDirection(instruction, this.direction, plateau)
+                        break;
+
+                    default:
+                        throw new Error('Invalid instruction provided');
+                }
+            })
+            resolve(this.finalPosition)
+        });
+            
+            // return this.finalPosition;
     }
 
     // deconstruct the upperRightX, upperRightY values from plateau
