@@ -50,12 +50,12 @@ class Rover {
 
     drive(plateau) {
 
-        console.log(`Rover starting position: ${this.xPosition} ${this.yPosition} ${this.direction}`);
+        if(!plateau) { throw new Error('A Plateau object is required'); }
+        
+        // console.log(`Rover starting position: ${this.xPosition} ${this.yPosition} ${this.direction}`);
 
         return new Promise(resolve => {
-
-            if(!plateau) { throw new Error('A Plateau object is required'); } 
-
+ 
             this.instructions.forEach(instruction => {
                 switch(instruction) {
                     case 'M':
@@ -73,8 +73,6 @@ class Rover {
             })
             resolve(this.finalPosition)
         });
-            
-            // return this.finalPosition;
     }
 
     // deconstruct the upperRightX, upperRightY values from plateau
