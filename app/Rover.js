@@ -60,7 +60,7 @@ class Rover {
             this.instructions.forEach(instruction => {
                 switch(instruction) {
                     case 'M':
-                        this.move(plateau);
+                        this.move(this.direction, plateau);
                         break;
 
                     case 'L':
@@ -77,14 +77,14 @@ class Rover {
     }
 
     // deconstruct the upperRightX, upperRightY values from plateau
-    move({ upperRightX, upperRightY }) {
+    move(direction, { upperRightX, upperRightY }) {
 
-        switch(this.direction) {
+        switch(direction) {
             case 'N':
                 if (this.yPosition < upperRightY ) {
                     this.yPosition++;
                 } else {
-                    console.log('Plateau edge reached')
+                    return 'Plateau edge reached';
                 }
                 break;
             
@@ -92,7 +92,7 @@ class Rover {
                 if (this.xPosition < upperRightX ) {
                     this.xPosition++;
                 } else {
-                    console.log('Plateau edge reached')
+                    return 'Plateau edge reached';
                 }
 
                 break;
@@ -101,7 +101,7 @@ class Rover {
                 if (this.yPosition > 0) {
                     this.yPosition--;
                 } else {
-                    console.log('Plateau edge reached')
+                    return 'Plateau edge reached';
                 }
               
                 break;
@@ -110,7 +110,7 @@ class Rover {
                 if (this.xPosition > 0) {
                     this.xPosition--;
                 } else {
-                    console.log('Plateau edge reached')
+                    return 'Plateau edge reached';
                 }
               
                 break;
