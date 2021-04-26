@@ -1,4 +1,4 @@
-# Nandos Code Challenge: Node.js #
+# Code Challenge: Node.js #
 
 ## Running the code ##
 
